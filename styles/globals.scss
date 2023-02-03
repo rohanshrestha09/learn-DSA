@@ -1,8 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-
-$font-primary: Poppins;
-
 $primary-color: #177ddc;
 
 @tailwind base;
@@ -16,10 +11,6 @@ $primary-color: #177ddc;
 
 @tailwind components;
 @tailwind utilities;
-
-* {
-    font-family: $font-primary;
-}
 
 svg {
     vertical-align: baseline !important;

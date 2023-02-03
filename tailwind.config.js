@@ -10,7 +10,7 @@ module.exports = {
                 primary: '#177ddc',
             },
             fontFamily: {
-                itim: ['Itim'],
+                itim: ['var(--font-itim)'],
             },
             fontSize: {
                 heading: `${(16 / 1440) * 100}vw`,
