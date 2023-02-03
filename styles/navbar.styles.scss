@@ -1,0 +1,130 @@
+@import './mixins.scss';
+
+.ant-layout {
+    &-sider {
+        background-color: #ffffff !important;
+        min-height: 100vh;
+        flex: 0 !important;
+        width: 18vw !important;
+        max-width: 18vw !important;
+        min-width: 18vw !important;
+        @apply shadow-lg;
+
+        &-children {
+            margin-top: px2vwL(-4) !important;
+            padding-top: 0 !important;
+
+            .ant-menu {
+                border-inline-end: 0 !important;
+                width: 100%;
+
+                %nav-style {
+                    height: px2vwL(40);
+                    line-height: px2vwL(38);
+                    margin: px2vwL(4) 0;
+                    padding: 0 px2vwL(17) !important;
+                    width: calc(100% - px2vwL(8));
+                    border-radius: 0;
+                    svg {
+                        min-width: px2vwL(12) !important;
+                        width: px2vwL(12);
+                        height: px2vwL(12);
+                    }
+
+                    .ant-menu-title-content {
+                        @apply text-paragraph text-slate-700;
+                        margin-inline-start: px2vwL(8) !important;
+                    }
+
+                    .ant-menu-submenu-arrow {
+                        inset-inline-end: px2vwL(14);
+                        width: px2vwL(8.5);
+
+                        &::before,
+                        &::after {
+                            border-radius: px2vwL(4.5);
+                            width: px2vwL(4.5);
+                            height: px2vwL(1.5);
+                        }
+
+                        &::before {
+                            transform: rotate(-45deg) translateX(px2vwL(2));
+                        }
+
+                        &::after {
+                            transform: rotate(45deg) translateX(px2vwL(-2));
+                        }
+                    }
+                }
+
+                &-item {
+                    @extend %nav-style;
+
+                    &-selected {
+                        border-left: px2vwL(3.5) solid $primary-color;
+                        // background: linear-gradient(
+                        //     90deg,
+                        //     $primary-color 0%,
+                        //     rgba(58, 97, 171, 0) 115.42%
+                        // );
+                        animation-name: border-animation;
+                        animation-duration: 0.2s;
+
+                        @keyframes border-animation {
+                            from {
+                                border-left: 0;
+                            }
+                            to {
+                                border-left: px2vwL(3.5) solid $primary-color;
+                            }
+                        }
+
+                        .ant-menu-title-content {
+                            color: $primary-color !important;
+                        }
+
+                        &:is(.ant-menu-item-only-child) {
+                            .ant-menu-title-content {
+                                transition: 0.2s;
+                                padding-left: px2vwL(12);
+                            }
+                        }
+                    }
+                }
+
+                &-submenu {
+                    padding-bottom: px2vwL(0.02);
+                    border-radius: 0;
+
+                    .ant-menu-item-only-child {
+                        padding-left: px2vwL(29) !important;
+                    }
+
+                    &-open.ant-menu-submenu-inline
+                        > .ant-menu-submenu-title
+                        > .ant-menu-submenu-arrow {
+                        transform: translateY(px2vwL(-2));
+                        &::after {
+                            transform: rotate(-45deg) translateX(px2vwL(-2));
+                        }
+                        &::before {
+                            transform: rotate(45deg) translateX(px2vwL(2));
+                        }
+                    }
+
+                    &-title {
+                        @extend %nav-style;
+                    }
+
+                    &-selected {
+                        .ant-menu-submenu-title {
+                            .ant-menu-title-content {
+                                color: $primary-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+@use 'sass:math';
+
+@function px2vwL($px) {
+    $result: 1;
+    $result: math.div($px, 1440) * 100;
+    @return #{$result}vw;
+}
+
+@function px2vwS($px) {
+    $result: 1;
+    $result: math.div($px, 428) * 100;
+    @return #{$result}vw;
+}
+
+@function px2rem($px) {
+    $result: 1;
+    $result: math.div($px, 16);
+    @return #{$result}rem;
+}
+
+@function px2remS($px) {
+    $result: 1;
+    $result: math.div($px, 16);
+    @return #{$result}rem;
+}
+
+@function pt2vwL($pt) {
+    $result: 1;
+    $result: math.div(($pt * 0.75), 1440) * 100;
+    @return #{$result}vw;
+}
+
+@mixin mQ($arg...) {
+    @if length($arg) == 1 {
+        @media screen and (max-width: nth($arg, 1)) {
+            @content;
+        }
+    }
+}

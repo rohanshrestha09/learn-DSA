@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+$font-primary: Poppins;
+
+$primary-color: #177ddc;
+
+@tailwind base;
+
+@layer bsae {
+    a {
+        all: revert;
+        color: $primary-color;
+    }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: $font-primary;
+}
+
+svg {
+    vertical-align: baseline !important;
+}
+
+@import './mixins.scss';
+@import './navbar.styles.scss';
